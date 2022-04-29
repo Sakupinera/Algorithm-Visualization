@@ -7,6 +7,7 @@
 修复了Dijkstra算法部分情况下的异常显示<br>
 修复了汉诺塔算法中调整数量的滑动条显示问题<br>
 调整了汉诺塔算法中调整速度的方式<br>
+调整了初始场景的加载方式，从异步加载改为了同步加载<br>
 
 # Algorithm Visualization_version1.0
  
