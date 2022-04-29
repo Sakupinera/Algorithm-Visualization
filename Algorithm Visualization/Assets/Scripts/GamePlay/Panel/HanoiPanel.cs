@@ -38,12 +38,10 @@ public class HanoiPanel : BasePanel
         Debug.Log(value);
         switch(toggleName){
             case "数目":
-                Hanoi.number_change(value);
-                Debug.Log(value);
+                Hanoi.number_change((int)value);
                 break;
             case "速度":
                 Hanoi.speed_change(value);
-                Debug.Log(value);
                 break;
         }
     }

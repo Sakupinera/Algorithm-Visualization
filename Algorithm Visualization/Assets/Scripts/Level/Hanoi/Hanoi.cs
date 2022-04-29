@@ -15,7 +15,7 @@ public class Hanoi : MonoBehaviour
     [SerializeField]
     private Transform pos_A,pos_B,pos_C;
     public bool is_auto_run = false;//是否自动执行代码
-    public float time=1;//移动物体耗费的时间
+    public float time = 1;//移动物体耗费的时间
     public float space=1;//上下间隔的距离
     public Text show_num;
     public Text show_speed;
@@ -61,21 +61,12 @@ public class Hanoi : MonoBehaviour
         }
         HNT(n, 'A', 'B', 'C');
 
-
-
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (is_auto_run == false)
-        {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-
-            }
-        }
-        else
+        if (is_auto_run == true)
         {
             timer += Time.deltaTime;//开始计时
             if (timer > time)//延迟2S执行
@@ -234,19 +225,14 @@ public class Hanoi : MonoBehaviour
     /// 数目
     /// </summary>
     /// <param name="new_num"></param>
-    public void number_change(float new_num)
+    public void number_change(int new_num)
     {
         for (int i = 0; i < n; i++)
         {
             Destroy(md[i]);
         }
-        new_num *= 10f;
-        new_num += 3;
-        n = (int)(new_num);
 
-        if(n>8)
-            n=8;
-        // Mathf.Clamp(n,3,8);
+        n = new_num;
 
         //Debug.Log(new_num.ToString());
         if (n > 100)
@@ -269,11 +255,6 @@ public class Hanoi : MonoBehaviour
     /// <param name="new_speed"></param>
     public void speed_change(float new_speed)
     {
-        float a = -2.8f;
-        float b = 3f;
-        time = a * (new_speed) + b;
-
-        show_speed.text="当前速度为："+((-a)*new_speed+(b+a));
-
+        Time.timeScale = new_speed;
     }
 }

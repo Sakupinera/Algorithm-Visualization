@@ -66,6 +66,60 @@ public class ListPanel : BasePanel
                     });
                 });
                 break;
+            case "SelectSortBtn":
+                UIManager.GetInstance().HidePanel(this.name);
+                ScenesManager.GetInstance().LoadSceneAsync("SelectSort", () => {
+                    ResourceManager.GetInstance().LoadAsync<GameObject>("Level/SortCore", (obj) =>
+                    {
+                        Sort sort = obj.GetComponentInChildren<Sort>();
+                        UIManager.GetInstance().ShowPanel<SortPanel>("SortPanel", E_UI_Layer.Middle, (panel) =>
+                        {
+                            panel.name = "SortPanel";
+                            panel.Sort = sort;
+                            panel.SortName = "SelectSort";
+                            panel.GetComponent<RectTransform>().anchorMin = new Vector2(0.84f, 0f);
+                            sort.NumText = panel.GetTextbyName("NumText");
+                            panel.Sort.Initialized(8);
+                        });
+                    });
+                });
+                break;
+            case "BubbleSortBtn":
+                UIManager.GetInstance().HidePanel(this.name);
+                ScenesManager.GetInstance().LoadSceneAsync("BubbleSort", () =>{
+                    ResourceManager.GetInstance().LoadAsync<GameObject>("Level/SortCore", (obj) =>
+                    {
+                        Sort sort = obj.GetComponentInChildren<Sort>();
+                        UIManager.GetInstance().ShowPanel<SortPanel>("SortPanel", E_UI_Layer.Middle, (panel) =>
+                        {
+                            panel.name = "SortPanel";
+                            panel.Sort = sort;
+                            panel.SortName = "BubbleSort";
+                            panel.GetComponent<RectTransform>().anchorMin = new Vector2(0.84f, 0f);
+                            sort.NumText = panel.GetTextbyName("NumText");
+                            panel.Sort.Initialized(8);
+                        });
+                    });
+                });
+                break;
+            case "InsertSortBtn":
+                UIManager.GetInstance().HidePanel(this.name);
+                ScenesManager.GetInstance().LoadSceneAsync("InsertSort", () => {
+                    ResourceManager.GetInstance().LoadAsync<GameObject>("Level/SortCore", (obj) =>
+                    {
+                        Sort sort = obj.GetComponentInChildren<Sort>();
+                        UIManager.GetInstance().ShowPanel<SortPanel>("SortPanel", E_UI_Layer.Middle, (panel) =>
+                        {
+                            panel.name = "SortPanel";
+                            panel.Sort = sort;
+                            panel.SortName = "InsertSort";
+                            panel.GetComponent<RectTransform>().anchorMin = new Vector2(0.84f, 0f);
+                            sort.NumText = panel.GetTextbyName("NumText");
+                            panel.Sort.Initialized(8);
+                        });
+                    });
+                });
+                break;
         }
     }  
 }

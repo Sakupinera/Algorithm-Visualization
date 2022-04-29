@@ -20,4 +20,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Dijkstra.unity
     guid: dae3292f988a2c241b7a9ca26ab96c0c
+  - enabled: 1
+    path: Assets/Scenes/BubbleSort.unity
+    guid: b89abfbd018ad164bae814e474cf852b
+  - enabled: 1
+    path: Assets/Scenes/SelectSort.unity
+    guid: 3ee6bb3096e11d64e916a1bf501e6a5f
+  - enabled: 1
+    path: Assets/Scenes/InsertSort.unity
+    guid: 538394e4beeace54391cdeb389307d8c
   m_configObjects: {}

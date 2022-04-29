@@ -69,7 +69,7 @@ public class DijkstraTilemap : MonoBehaviour
     //  改变演示速度
     public void ChangePrintSpeed(float value)
     {
-        printInterval = 1 / value;
+        Time.timeScale = value;
     }
 
     /// <summary>
@@ -164,6 +164,11 @@ public class DijkstraTilemap : MonoBehaviour
         bool interchange = true;
         foreach (var list in walkedPath)
         {
+            if (isFinded == false)
+            {
+                StartCoroutine(HintTextPrint("未找到通路！"));
+                break;
+            }
             if (interchange == true)
             {
                 foreach (var point in list)
@@ -192,11 +197,6 @@ public class DijkstraTilemap : MonoBehaviour
                 }
                 interchange = true;
             }
-        }
-
-        if (isFinded == false)
-        {
-            StartCoroutine(HintTextPrint("未找到通路！"));
         }
 
         foreach (var point in path)

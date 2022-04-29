@@ -19,6 +19,7 @@ public class FunctionalPanel : BasePanel
                         UIManager.GetInstance().ShowPanel<MainMenuPanel>("MainMenuPanel", E_UI_Layer.Middle, (panel)=>{
                             panel.name = "MainMenuPanel";
                         });
+                        Time.timeScale = 1f;
                     });
                 }else{
                     UIManager.GetInstance().ShowPanel<MainMenuPanel>("MainMenuPanel", E_UI_Layer.Middle, (panel)=>{

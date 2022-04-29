@@ -71,7 +71,7 @@ public class AStarTilemap : MonoBehaviour
     //  改变演示速度
     public void ChangePrintSpeed(float value)
     {
-        printInterval = 1 / value;
+        Time.timeScale = value;
     }
 
     /// <summary>

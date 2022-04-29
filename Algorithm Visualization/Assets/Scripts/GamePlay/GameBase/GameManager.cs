@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoSingleton<GameManager>
 {
@@ -9,13 +10,15 @@ public class GameManager : MonoSingleton<GameManager>
             DontDestroyOnLoad(gameObject);
         base.Awake();
     }
-    protected override void Init(){}
-    protected override void DisInit(){}
+    // protected override void Init(){}
+    // protected override void DisInit(){}
 
     // Start is called before the first frame update
     void Start()
     {
-        ScenesManager.GetInstance().LoadSceneAsync("MainMenu", ()=>{
+        gameObject.AddComponent<AspectRatioController>();
+
+        ScenesManager.GetInstance().LoadScene("MainMenu", ()=>{
             UIManager.GetInstance().ShowPanel<MainMenuPanel>("MainMenuPanel", E_UI_Layer.Middle, (panel)=>{
                 panel.name = "MainMenuPanel";
             });
